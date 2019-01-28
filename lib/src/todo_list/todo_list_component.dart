@@ -23,18 +23,38 @@ class TodoListComponent implements OnInit {
   final TodoListService todoListService;
 
   List<String> items = [];
-  String newTodo = '';
+  Map<String,String> bindings;
+  String pressedKey = '';
+  
+  List<String> wrongs = [];
+
+  int n = 200;
 
   TodoListComponent(this.todoListService);
 
   @override
   Future<Null> ngOnInit() async {
-    items = await todoListService.getTodoList();
+    items = await todoListService.next(n);
+    bindings = await todoListService.bindings();
   }
 
-  void add() {
-    items.add(newTodo);
-    newTodo = '';
+  void check() {
+    String symbol = items.last;
+    String key = bindings[symbol];
+    if (pressedKey == key) {
+      // entered key is correct
+      items.removeLast();
+    } else {
+      wrongs.add(symbol);
+    }
+    pressedKey = '';
+
+    if (items.isEmpty) {
+      if (wrongs.isNotEmpty) {
+        items = wrongs;
+        wrongs = [];
+      }
+    }
   }
 
   String remove(int index) => items.removeAt(index);

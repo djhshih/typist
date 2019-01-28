@@ -20,6 +20,12 @@ li material-fab {
   vertical-align: middle;
 }
 
+.symbol {
+  font-size: 500%;
+  text-align: center;
+  color: crimson;
+}
+
 .done {
   text-decoration: line-through;
 }
