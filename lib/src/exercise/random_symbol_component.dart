@@ -3,24 +3,21 @@ import 'dart:async';
 import 'package:angular/angular.dart';
 import 'package:angular_components/angular_components.dart';
 
-import 'todo_list_service.dart';
+import 'exercise_service.dart';
 
 @Component(
-  selector: 'todo-list',
-  styleUrls: ['todo_list_component.css'],
-  templateUrl: 'todo_list_component.html',
+  selector: 'random-symbol',
+  styleUrls: ['random_symbol_component.css'],
+  templateUrl: 'random_symbol_component.html',
   directives: [
-    MaterialCheckboxComponent,
-    MaterialFabComponent,
-    MaterialIconComponent,
     materialInputDirectives,
     NgFor,
     NgIf,
   ],
-  providers: [ClassProvider(TodoListService)],
+  providers: [ClassProvider(ExerciseService)],
 )
-class TodoListComponent implements OnInit {
-  final TodoListService todoListService;
+class RandomSymbolComponent implements OnInit {
+  final ExerciseService exerciseService;
 
   List<String> items = [];
   Map<String,String> bindings;
@@ -30,12 +27,12 @@ class TodoListComponent implements OnInit {
 
   int n = 200;
 
-  TodoListComponent(this.todoListService);
+  RandomSymbolComponent(this.exerciseService);
 
   @override
   Future<Null> ngOnInit() async {
-    items = await todoListService.next(n);
-    bindings = await todoListService.bindings();
+    items = await exerciseService.next_symbols(n);
+    bindings = await exerciseService.bindings();
   }
 
   void check() {

@@ -1,0 +1,24 @@
+<p *ngIf="items.isEmpty">
+  You're done!
+</p>
+
+<div *ngIf="items.isNotEmpty">
+  <div class="symbol">{{items.last}}</div>
+  <span *ngFor="let item of items.reversed">
+    {{item}}
+  </span>
+</div>
+
+<div>
+  <material-input label="What is the next symbol?"
+                  autoFocus floatingLabel style="width:80%"
+                  [(ngModel)]="pressedKey"
+                  (keyup)="check()">
+  </material-input>
+</div>
+
+<div *ngIf="wrongs.isNotEmpty">
+  <span *ngFor="let wrong of wrongs">
+    {{wrong}}
+  </span>
+</div>
