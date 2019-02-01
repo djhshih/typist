@@ -3,10 +3,7 @@
 </p>
 
 <div *ngIf="items.isNotEmpty">
-  <div class="symbol">{{combo}}</div>
-  <span *ngFor="let item of items.reversed">
-    {{item}}
-  </span>
+  <div class="combo highlight">{{combo}}</div>
 </div>
 
 <div>

@@ -20,9 +20,14 @@ li material-fab {
   vertical-align: middle;
 }
 
-.symbol {
+.combo {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: -0.25em;
+}
+
+.combo.highlight {
   font-size: 500%;
-  text-align: center;
   color: crimson;
 }
 
