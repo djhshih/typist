@@ -1,7 +1,9 @@
 # typist
 
-A web app that uses [AngularDart](https://webdev.dartlang.org/angular) and
-[AngularDart Components](https://webdev.dartlang.org/components).
+A typing exercise web app for practicing typing zhuyin using the Eten26 keyboard layout.
 
-Created from templates made available by Stagehand under a BSD-style
-[license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
+## Usage
+
+```
+webdev serve
+```
