@@ -4,10 +4,8 @@ import 'dart:math';
 import 'package:angular/core.dart';
 
 @Injectable()
-class ExerciseService {
-  List<String> mockTodoList = <String>[];
-  
-  Map<String,String> _bindings = {
+class ExerciseService {  
+  final Map<String,String> _bindings = const {
     'ㄅ': 'b',
     'ㄆ': 'p',
     'ㄇ': 'm',
@@ -52,7 +50,7 @@ class ExerciseService {
     ' ': ' ',
   };
   
-  List<List<String>> groups = [
+  final List<List<String>> groups = const [
     [
       'ㄅ', 'ㄆ', 'ㄇ', 'ㄈ',
       'ㄉ', 'ㄊ', 'ㄋ', 'ㄌ'
@@ -72,11 +70,11 @@ class ExerciseService {
     ]
   ];
 
-  List<String> accents = [
+  final List<String> accents = const [
     ' ', '˙', 'ˊ', 'ˇ', 'ˋ'
   ];
   
-  List<String> combos = [
+  final List<String> combos = const [
     'ㄅㄚ',
     'ㄅㄞ',
     'ㄅㄢ',
@@ -501,7 +499,7 @@ class ExerciseService {
     int n = combos.length;
     int m = accents.length;
     List<String> xs = [];
-    for (int i = 0; i < k; i++) {
+    for (int i = 0; i < k; ++i) {
       int j = r.nextInt(n);
       int jj = r.nextInt(m);
       String combo = combos[j] + accents[jj];
